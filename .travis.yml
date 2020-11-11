@@ -5,7 +5,7 @@ services:
 
 os: linux
 
-dist: Bionic
+dist: xenial
 
 before_install:
   - echo "start creating an image with dockerfile"
@@ -16,3 +16,6 @@ script:
 
 after_success:
   - echo "Test success"
+
+after_failure:
+  - echo "Test Fail!"
