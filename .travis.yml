@@ -1,11 +1,22 @@
-language: node_js
-
-services:
-  - docker
+#sudo: required
 
 os: linux
 
-dist: xenial
+# 언어(플랫폼)선택
+language: generic
+
+# ----------------------------
+# *** 우분투 릴리즈별 코드명  ***
+# Xenial Xerus (16.04)
+# Yakkety Yak (16.10)
+# Zesty Zapus (17.04)
+# Artful Aardvark (17.10)
+# Bionic Beaver (18.04)
+# ----------------------------
+dist: Bionic
+
+services:
+  - docker
 
 before_install:
   - echo "start creating an image with dockerfile"
@@ -16,19 +27,3 @@ script:
 
 after_success:
   - echo "Test success"
-
-after_failure:
-  - echo "Test Fail!"
-
-deploy:
-  provider: elasticbeanstalk
-  region: eu-central-1
-  app: "simple-docker-react-app"
-  env: "SimpleDockerReactApp-env"
-  bucket: "elasticbeanstalk-eu-central-1-183248202880"
-  bucket_path: "simple-docker-react-app"
-  on:
-    branch: master
-
-access_key_id: $AWS-ACCESS-KEY
-secret_access_key: $AWS-SECRET-KEY
