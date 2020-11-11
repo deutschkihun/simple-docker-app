@@ -1,0 +1,19 @@
+# sudo: required
+language: generic
+
+services:
+  - docker
+
+os: linux
+
+dist: bionic
+
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t deutschkihun/simple-docker-react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true deutschkihun/simple-docker-react-app npm run test -- --coverage
+
+after_success:
+  - echo "Test success"
