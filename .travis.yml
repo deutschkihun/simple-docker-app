@@ -2,17 +2,8 @@
 
 os: linux
 
-# 언어(플랫폼)선택
 language: generic
 
-# ----------------------------
-# *** 우분투 릴리즈별 코드명  ***
-# Xenial Xerus (16.04)
-# Yakkety Yak (16.10)
-# Zesty Zapus (17.04)
-# Artful Aardvark (17.10)
-# Bionic Beaver (18.04)
-# ----------------------------
 dist: Bionic
 
 services:
@@ -20,10 +11,7 @@ services:
 
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t deutschkihun/simple-docker-react-app -f Dockerfile.dev .
+  - docker build -t deutschkihun/simple-docker-app -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true deutschkihun/simple-docker-react-app npm run test -- --coverage
-
-after_success:
-  - echo "Test success"
+  - docker run -e CI=true deutschkihun/simple-docker-app npm run test -- --coverage
