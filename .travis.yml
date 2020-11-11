@@ -5,7 +5,7 @@ services:
 
 os: linux
 
-dist: bionic
+dist: Bionic
 
 before_install:
   - echo "start creating an image with dockerfile"
