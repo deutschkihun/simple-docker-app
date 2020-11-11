@@ -19,3 +19,16 @@ after_success:
 
 after_failure:
   - echo "Test Fail!"
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: "simple-docker-react-app"
+  env: "SimpleDockerReactApp-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-183248202880"
+  bucket_path: "simple-docker-react-app"
+  on:
+    branch: master
+
+access_key_id: $AWS-ACCESS-KEY
+secret_access_key: $AWS-SECRET-KEY
