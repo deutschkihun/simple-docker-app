@@ -15,3 +15,16 @@ before_install:
 
 script:
   - docker run -e CI=true deutschkihun/simple-docker-app npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "simple-docker-react-app"
+  env: "SimpleDockerReactApp-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-183248202880"
+  bucket_path: "simple-docker-react-app"
+  on:
+    branch: master
+
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key: $SECRET_ACCESS_KEY
