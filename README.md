@@ -17,7 +17,7 @@ make sure that your .travis.yml has correct AWS information
 
 ### About Dockerfile & Dockerfile.dev
 
-1. DOckerfile.dev
+1. Dockerfile.dev
 
    - stands for Dockerfile for development mode.
    - contains baseImage : alpine
